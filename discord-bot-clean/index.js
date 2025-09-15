@@ -42,3 +42,16 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // Connessione con il token
 client.login(process.env.BOT_TOKEN);
+
+// ===========================================
+// Server HTTP finto per Render
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot online\n');
+}).listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
